@@ -1,0 +1,125 @@
+<html>
+	<meta charset="utf-8">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<title>Calculate Website</title>
+		<!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+		<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+		<!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<!-- Bootstrap -->
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<script>
+function ajax_request()
+{
+	var xmlhttp;
+	if (window.XMLHttpRequest) {
+		// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+	} else {
+		// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	}
+
+	xmlhttp.onreadystatechange=function() {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+			document.getElementById("result").innerHTML=xmlhttp.responseText;
+		}
+	}
+
+	var S1 = document.getElementById("S1").value;
+	var S2 = document.getElementById("S2").value;
+	var sigma1 = document.getElementById("sigma1").value;
+	var sigma2 = document.getElementById("sigma2").value;
+	var r = document.getElementById("r").value;
+    var T = document.getElementById("T").value;
+    var K = document.getElementById("K").value;
+	var rau = document.getElementById("rau").value;
+    var call_put = document.getElementById("call_put").value;
+	var flag = document.getElementById("flag").value;
+	xmlhttp.open("GET", "/g_basket/" + "S1" + S1 + "S2" + S2 + "sigma1" + sigma1 + "sigma2"  + sigma2  + "r" + r + "T" + T + "K" + K + "rau" + rau + "call_put" + call_put + "flag" + flag + "/" 
+			, true);
+	xmlhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+	xmlhttp.send();
+}
+		</script>
+
+	</head>
+	<body>
+		<div class="container">
+			<div class="page-header">
+				<h1>  Option Calculator  <small>  From Technique in Finance</small></h1>
+			</div>
+			<div class="row">
+				<div class="col-md-3">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation"><a href="/european_index/">European call/put option</a></li>
+						<li role="presentation"><a href="/volatility_index/">Implied volatility calculator</a></li>
+						<li role="presentation"><a href="/american_index/">American call/put option</a></li>
+						<li role="presentation"><a href="/g_asian_index/">Geometric Asian option</a></li>
+						<li role="presentation"><a href="/a_asian_index/">Arithmetic Asian option</a></li>
+						<li role="presentation" class="active"><a href="/g_basket_index/">Geometric basket option</a></li>
+						<li role="presentation"><a href="/a_basket_index/">Arithmetic basket option</a></li>
+					</ul>
+				</div>
+				<div id="myDiv" class="col-md-9">
+					<h3>Please input these parameters:</h3>
+					<div>
+						<table class="table">
+							<tr>
+								<td>Stock Price 1: </td>
+								<td><input id="S1" value="100"><br></td>
+							</tr>
+							<tr>
+								<td>Stock Price 2: </td>
+								<td><input id="S2" value="100"><br></td>
+							</tr>
+							<tr>
+								<td>sigma 1: </td>
+								<td><input id="sigma1" value="0.3"><br></td>
+							</tr>
+							<tr>
+								<td>sigma 2: </td>
+								<td><input id="sigma2" value="0.3"><br></td>
+							</tr>
+							<tr>
+								<td>rate: </td>
+								<td><input id="r" value="0.05"><br></td>
+							</tr>
+                             <tr>
+                                <td>T: </td>
+                                <td><input id="T" value="3"><br></td>
+                            </tr>
+                            <tr>
+                                <td>strike price: </td>
+                                <td><input id="K" value="100"><br></td>
+                            </tr>
+                            <tr>
+                                <td>correlation: </td>
+                                <td><input id="rau" value="0.5"><br></td>
+                            </tr>
+							<tr>
+								<td>call_put: </td>
+								<td><input id="call_put" value="P"><br></td>
+							</tr>
+							<tr>
+								<td>controlspecify: </td>
+								<td><input id="flag" value="Yes"><br></td>
+							</tr>
+							<tr>
+								<td>
+									<button type="button" class="btn btn-primary" onclick="ajax_request()">Geometric basket option</button>
+								</td>
+								<td><span id="result"></span></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
