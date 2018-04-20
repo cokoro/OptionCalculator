@@ -26,8 +26,8 @@ Please note that we use Python 2.7, so make sure that you use correct version wh
 
 ## Setting up a development environment
 
-First, clone the repository:
-Step into newly created `djangogirls` directory:
+First, clone the repository,
+step into newly created `ass3_website` directory:
 
     cd ass3_website
 
