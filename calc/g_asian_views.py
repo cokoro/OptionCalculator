@@ -2,13 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from math import *
-from scipy.stats import norm
 import numpy as np
-import random
-
+from scipy.stats import norm
+import scipy
+from math import sqrt,exp,log
 
 def geo_asian_option(S0,sigma,r,T,K,step,option_type):
-    N = float(step)
+    dt = 1e-2
+    N = int(T / dt)
     
     sigmaHat = sigma * sqrt((N+1)*(2*N+1)/(6*pow(N,2)))
     muHat = (r-0.5*pow(sigma, 2))*(N+1)/(2*N)+0.5*pow(sigmaHat, 2)
