@@ -26,6 +26,25 @@ Please note that we use Python 2.7, so make sure that you use correct version wh
 
 ## Setting up a development environment
 
+### Preparation for Windows
+
+Download pip and install
+go to https://pip.pypa.io/en/latest/installing/
+
+Then install virtualenv and virtualenvwrapper
+
+    pip install virtualenvwrapper-win
+ 
+Then create a virtual environment for your project:
+
+    mkvirtualenv myproject
+    
+If you start a new command prompt, you’ll need to activate the environment again using:
+
+    workon myproject
+
+### Steps for Windows/Mac/Ubuntu
+
 First, clone the repository,
 step into newly created `ass3_website` directory:
 
@@ -34,6 +53,7 @@ step into newly created `ass3_website` directory:
 Create a new virtual environment if needed. Then, install all the required dependencies:
 
     pip install -r requirements.txt
+
 
 Run the migration
 
@@ -44,5 +64,5 @@ Run your local server:
 
     python manage.py runserver
 
-
-
+If have any problem, you can try to edit the requirements.txt,or install/update the scipy/django/numpy manually.
+Should you have any problem, you can contact Kexin Chen.
