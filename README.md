@@ -26,10 +26,9 @@ Please note that we use Python 2.7, so make sure that you use correct version wh
 
 ## Setting up a development environment
 
-### Preparation for Windows
+### Preparation for Windows only
 
-Download pip and install
-go to https://pip.pypa.io/en/latest/installing/
+Download pip and install,go to https://pip.pypa.io/en/latest/installing/
 
 Then install virtualenv and virtualenvwrapper
 
@@ -46,9 +45,9 @@ If you start a new command prompt, you’ll need to activate the environment aga
 ### Steps for Windows/Mac/Ubuntu
 
 First, clone the repository,
-step into newly created `ass3_website` directory:
+step into newly created `OptionCalculator` directory:
 
-    cd ass3_website
+    cd OptionCalculator
 
 Create a new virtual environment if needed. Then, install all the required dependencies:
 
